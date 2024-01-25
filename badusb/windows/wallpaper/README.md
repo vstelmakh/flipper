@@ -7,7 +7,7 @@ This script is downloading provided image and setting it as desktop wallpaper. A
 
 ## Setup
 1. Provide a valid link for image in [script.txt](./script.txt#L11).
-2. Rename `script.txt` to any desired script name. Remeber `.txt` extension is required.
+2. Rename `script.txt` to any desired script name. Remember `.txt` extension is required.
 3. Upload `%any-name%.txt` to Flipper `badusb` dir.
 
 ## Run

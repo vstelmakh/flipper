@@ -7,7 +7,7 @@ This script downloading provided video to target PC and playing it when mouse mo
 
 ## Setup
 1. Provide a valid link for video in [script.txt](./script.txt#L11).
-2. Rename `script.txt` to any desired script name. Remeber `.txt` extension is required.
+2. Rename `script.txt` to any desired script name. Remember `.txt` extension is required.
 3. Upload `%any-name%.txt` to Flipper `badusb` dir.
 
 > Keep in mind video will be downloaded on target. Smaller size - faster setup time.
