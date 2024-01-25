@@ -35,6 +35,7 @@ function playVideoLoop([uri] $source) {
         <Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                 Title="PowerShell Video Player"
+                Topmost="True"
                 WindowState="Maximized"
                 WindowStyle="None"
                 ResizeMode="NoResize"
