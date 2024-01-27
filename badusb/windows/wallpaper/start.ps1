@@ -16,18 +16,18 @@ function setWallpaper([string] $image, [string] $style = "fill") {
         "center" {0}
         "span" {22}
     }
-   [int] $tileCode = $(if ($style -eq "tile") {1} else {0})
-   New-ItemProperty -Path "HKCU:\Control Panel\Desktop" -Name WallpaperStyle -PropertyType String -Value $styleCode -Force
-   New-ItemProperty -Path "HKCU:\Control Panel\Desktop" -Name TileWallpaper -PropertyType String -Value $tileCode -Force
+    [int] $tileCode = $(if ($style -eq "tile") {1} else {0})
+    New-ItemProperty -Path "HKCU:\Control Panel\Desktop" -Name WallpaperStyle -PropertyType String -Value $styleCode -Force
+    New-ItemProperty -Path "HKCU:\Control Panel\Desktop" -Name TileWallpaper -PropertyType String -Value $tileCode -Force
 
-   Add-Type -TypeDefinition @" 
-       using System; 
-       using System.Runtime.InteropServices;
+    Add-Type -TypeDefinition @"
+        using System;
+        using System.Runtime.InteropServices;
 
-       public class Params {
-            [DllImport("User32.dll", CharSet=CharSet.Unicode)] 
-            public static extern int SystemParametersInfo (Int32 uAction, Int32 uParam, String lpvParam, Int32 fuWinIni);
-       }
+        public class Params {
+             [DllImport("User32.dll", CharSet=CharSet.Unicode)]
+             public static extern int SystemParametersInfo (Int32 uAction, Int32 uParam, String lpvParam, Int32 fuWinIni);
+        }
 "@
 
     $setWallpaper = 0x0014
